@@ -75,24 +75,18 @@ void loop() {
   } else {
     if(Serial.available()){
       String inStr=Serial.readStringUntil('\n');
+      inStr.trim();
       if(!isMoving) {
-        char ch=inStr.charAt(0);
-        switch (ch) {
-          case '1':
-            moveToFloor(1);
-            break;
-          case '2':
-            moveToFloor(2);
-            break;
-          case '3':
-            moveToFloor(3);
-            break;
-          case '4':
-            moveToFloor(4);
-            break;
-          case 'S':
-            sendState();
-            break;
+        if (inStr.equals("1")) {
+          moveToFloor(1);
+        } else if (inStr.equals("2")) {
+          moveToFloor(2);
+        } else if (inStr.equals("3")) {
+          moveToFloor(3);
+        } else if (inStr.equals("4")) {
+          moveToFloor(4);
+        } else if (inStr.equals("S")) {
+          sendState();
         }
       }
     }
