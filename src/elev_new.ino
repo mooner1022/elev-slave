@@ -123,8 +123,6 @@ void moveToFloor(int floor) {
     int distance = sensor.readRangeContinuousMillimeters();
     inaccurateMovingDirection = distance<floorDistance[targetFloor-1];
     int inaccurateMillis = (abs(distance-floorDistance[targetFloor-1])-30)*10;
-    Serial.println(distance-floorDistance[targetFloor-1]);
-    Serial.println(inaccurateMillis);
     if (inaccurateMillis<0) {
       isMovingInaccurate=false;
       isDecreacingSpeed=false;
